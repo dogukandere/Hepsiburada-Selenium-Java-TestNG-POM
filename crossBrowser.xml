@@ -1,0 +1,16 @@
+
+<suite name="cross browser">
+    <test name="cross browser firefox">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="tests.HepsiburadaTest"></class>
+        </classes>
+    </test>
+
+    <test name="cross browser chrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="tests.HepsiburadaTest"></class>
+        </classes>
+    </test>
+</suite>
