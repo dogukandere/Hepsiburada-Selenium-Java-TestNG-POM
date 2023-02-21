@@ -27,7 +27,6 @@ public abstract class TestBaseCross {
     }
     @AfterClass
     public void tearDown(){
-
         driver.quit();
     }
 
