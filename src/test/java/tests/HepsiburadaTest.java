@@ -9,7 +9,7 @@ public class HepsiburadaTest extends TestBase {
 
     @Test(priority = 1, description = "Check the main page and search product")
     public void test01() throws Exception {
-        hepsiburadaPage = new HepsiburadaPage(driver); //Creating a new object
+        hepsiburadaPage = new HepsiburadaPage(driver);
         hepsiburadaPage.navigateToPage("https://www.hepsiburada.com/");
         hepsiburadaPage.acceptPopup();
         hepsiburadaPage.screenShot();
