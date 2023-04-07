@@ -205,15 +205,15 @@ public class ReusableMethods {
         Assert.assertTrue(element.isEnabled());
     }
 
-    public void Click(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+    public void Click(String xpath){
+        WebElement element = driver.findElement(By.xpath(xpath));
+        waitUntilElementIsClickable(element,10);
         element.click();
     }
 
-    public void SendKeys(WebElement element, String value){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(element));
+    public void SendKeys(String xpath, String value){
+        WebElement element = driver.findElement(By.xpath(xpath));
+        waitUntilElementIsVisible(element,10);
         element.sendKeys(value);
     }
 }

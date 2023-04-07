@@ -16,41 +16,18 @@ public class HepsiburadaPage extends ReusableMethods {
         PageFactory.initElements(driver,this);
     }
 
-    @FindBy(xpath = "//input[@placeholder='Ürün, kategori veya marka ara']")
-    private WebElement searchBox;
-
-    @FindBy(xpath = "//div[@class='searchBoxOld-yDJzsIfi_S5gVgoapx6f']")
-    private WebElement searchButton;
-
-    @FindBy(xpath = "//*[@id=\"onetrust-accept-btn-handler\"]")
-    private WebElement popup;
-
-    @FindBy(xpath = "//a[@title='Hepsiburada']//*[name()='svg']//*[name()='path' and contains(@fill,'#FF6000')]")
-    private WebElement logo;
-
-    @FindBy(xpath = "//span[@title='Giriş Yap']")
-    private WebElement loginButton;
-
-    @FindBy(xpath = "//span[@id='shoppingCart']")
-    private WebElement cartButton;
-
-    @FindBy(xpath = "//button[@id='addToCart']")
-    private WebElement addCartButton;
-
-    @FindBy(xpath = "//a[@title='Samsung Galaxy S23 256 GB 8 GB Ram (Samsung Türkiye Garantili)']//h3[@type='comfort']")
-    private WebElement product;
-
-    @FindBy(xpath = "//span[@data-bind=\"markupText:'currentPriceBeforePoint'\"]")
-    private WebElement textControlElement;
-
-    @FindBy(xpath = "//span[@class='checkoutui-ProductOnBasketHeader-nOvp_U8bHbLzgKbSUFaz']")
-    private WebElement productCheckElement;
-
-    @FindBy(xpath = "//button[normalize-space()='Sepete git']")
-    private WebElement goToCartButton;
-
-    @FindBy(xpath = "//button[@id='continue_step_btn']")
-    private WebElement shoppingButton;
+    private final String SEARCH_BOX = "//input[@placeholder='Ürün, kategori veya marka ara']";
+    private final String SEARCH_BUTTON = "//div[@class='searchBoxOld-yDJzsIfi_S5gVgoapx6f']";
+    private final String POPUP = "//*[@id=\"onetrust-accept-btn-handler\"]";
+    private final String LOGO = "//a[@title='Hepsiburada']//*[name()='svg']//*[name()='path' and contains(@fill,'#FF6000')]";
+    private final String LOGIN_BUTTON = "//span[@title='Giriş Yap']";
+    private final String CART_BUTTON = "//span[@id='shoppingCart']";
+    private final String ADD_CART_BUTTON = "//button[@id='addToCart']";
+    private final String PRODUCT = "//a[@title='Samsung Galaxy S23 256 GB 8 GB Ram (Samsung Türkiye Garantili)']//h3[@type='comfort']";
+    private final String TEXT_CONTROL_ELEMENT = "//span[@data-bind=\"markupText:'currentPriceBeforePoint'\"]";
+    private final String PRODUCT_CHECK_ELEMENT = "//span[@class='checkoutui-ProductOnBasketHeader-nOvp_U8bHbLzgKbSUFaz']";
+    private final String GO_TO_CART_BUTTON = "//button[normalize-space()='Sepete git']";
+    private final String SHOPPING_BUTTON = "//button[@id='continue_step_btn']";
 
 
     public void navigateToPage(String url) {
@@ -58,57 +35,52 @@ public class HepsiburadaPage extends ReusableMethods {
     }
 
     public void acceptPopup(){
-        if(popup.isDisplayed()){
-            Click(popup);
-        }
-        else{
-            System.out.println("Popup is already accepted");
-        }
+            Click(POPUP);
     }
 
     public void buttonCheck(){
-        isDisplayed(loginButton);
-        isDisplayed(cartButton);
+        isDisplayed(LOGIN_BUTTON);
+        isDisplayed(CART_BUTTON);
     }
 
     public void linkLogoTitleCheck(){
-        isDisplayed(logo);
+        isDisplayed(LOGO);
         Assert.assertEquals("https://www.hepsiburada.com/",driver.getCurrentUrl());
         Assert.assertEquals("Türkiye'nin En Büyük Online Alışveriş Sitesi Hepsiburada.com",driver.getTitle());
     }
 
     public void searchProduct(String productname){
-        SendKeys(searchBox,productname);
+        SendKeys(SEARCH_BOX,productname);
     }
 
     public void searchClick(){
-        Click(searchButton);
+        Click(SEARCH_BUTTON);
     }
 
     public void productClick(){
-        Click(product);
+        Click(PRODUCT);
     }
 
     public void priceCheck(String fiyat){
-        Assert.assertEquals(textControlElement.getText(),fiyat);
+        Assert.assertEquals(TEXT_CONTROL_ELEMENT.getText(),fiyat);
     }
 
     public void addToCart(){
-        Click(addCartButton);
+        Click(ADD_CART_BUTTON);
     }
 
     public void productInCartCheck(){
-        waitUntilElementIsVisible(productCheckElement,10);
-        Assert.assertEquals(productCheckElement.getText(),"Ürün sepetinizde");
+        waitUntilElementIsVisible(PRODUCT_CHECK_ELEMENT,10);
+        Assert.assertEquals(PRODUCT_CHECK_ELEMENT.getText(),"Ürün sepetinizde");
     }
 
     public void goToBuyPage(){
-        Click(goToCartButton);
+        Click(GO_TO_CART_BUTTON);
     }
 
     public void shoppingButtonCheck(){
-        isDisplayed(shoppingButton);
-        isClickable(shoppingButton);
+        isDisplayed(SHOPPING_BUTTON);
+        isClickable(SHOPPING_BUTTON);
     }
 
 }
