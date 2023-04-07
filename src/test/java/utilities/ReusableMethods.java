@@ -201,7 +201,7 @@ public class ReusableMethods {
     }
 
     public void isClickable(WebElement element){
-        waitUntilElementIsVisible(element,10);
+        waitUntilElementIsClickable(element,10);
         Assert.assertTrue(element.isEnabled());
     }
 
