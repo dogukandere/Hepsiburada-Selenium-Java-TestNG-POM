@@ -59,7 +59,7 @@ public class HepsiburadaPage extends ReusableMethods {
 
     public void acceptPopup(){
         if(popup.isDisplayed()){
-            popup.click();
+            Click(popup);
         }
         else{
             System.out.println("Popup is already accepted");
