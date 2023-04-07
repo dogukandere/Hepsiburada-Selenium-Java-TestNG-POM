@@ -25,7 +25,7 @@ public class HepsiburadaTest extends TestBase {
     @Test(priority = 2, description = "Check the product's price and added to cart")
     public void test02(){
         hepsiburadaPage = new HepsiburadaPage(driver);
-        hepsiburadaPage.priceCheck("23.996");
+        hepsiburadaPage.priceCheck("24.389");
         hepsiburadaPage.addToCart();
         hepsiburadaPage.productInCartCheck();
         hepsiburadaPage.goToBuyPage();
