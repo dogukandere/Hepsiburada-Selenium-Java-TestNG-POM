@@ -67,28 +67,26 @@ public class HepsiburadaPage extends ReusableMethods {
     }
 
     public void buttonCheck(){
-        Assert.assertTrue(loginButton.isDisplayed());
-        Assert.assertTrue(cartButton.isDisplayed());
+        isDisplayed(loginButton);
+        isDisplayed(cartButton);
     }
 
     public void linkLogoTitleCheck(){
-        Assert.assertTrue(logo.isDisplayed());
+        isDisplayed(logo);
         Assert.assertEquals("https://www.hepsiburada.com/",driver.getCurrentUrl());
         Assert.assertEquals("Türkiye'nin En Büyük Online Alışveriş Sitesi Hepsiburada.com",driver.getTitle());
     }
 
     public void searchProduct(String productname){
-        searchBox.clear();
-        searchBox.sendKeys(productname);
+        SendKeys(searchBox,productname);
     }
 
     public void searchClick(){
-        searchButton.click();
+        Click(searchButton);
     }
 
     public void productClick(){
-        waitUntilElementIsClickable(product,10);
-        product.click();
+        Click(product);
     }
 
     public void priceCheck(String fiyat){
@@ -96,8 +94,7 @@ public class HepsiburadaPage extends ReusableMethods {
     }
 
     public void addToCart(){
-        waitUntilElementIsClickable(addCartButton,10);
-        addCartButton.click();
+        Click(addCartButton);
     }
 
     public void productInCartCheck(){
@@ -106,14 +103,12 @@ public class HepsiburadaPage extends ReusableMethods {
     }
 
     public void goToBuyPage(){
-        waitUntilElementIsClickable(goToCartButton,10);
-        goToCartButton.click();
+        Click(goToCartButton);
     }
 
     public void shoppingButtonCheck(){
-        waitUntilElementIsVisible(shoppingButton,15);
-        Assert.assertTrue(shoppingButton.isDisplayed());
-        Assert.assertTrue(shoppingButton.isEnabled());
+        isDisplayed(shoppingButton);
+        isClickable(shoppingButton);
     }
 
 }
