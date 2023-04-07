@@ -195,5 +195,25 @@ public class ReusableMethods {
         element2.sendKeys(Keys.COMMAND + "v");
     }
 
+    public void isDisplayed(WebElement element){
+        waitUntilElementIsVisible(element,10);
+        Assert.assertTrue(element.isDisplayed());
+    }
 
+    public void isClickable(WebElement element){
+        waitUntilElementIsVisible(element,10);
+        Assert.assertTrue(element.isEnabled());
+    }
+
+    public void Click(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+    }
+
+    public void SendKeys(WebElement element, String value){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(element));
+        element.sendKeys(value);
+    }
 }
