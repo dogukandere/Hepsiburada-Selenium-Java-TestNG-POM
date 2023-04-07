@@ -206,14 +206,12 @@ public class ReusableMethods {
     }
 
     public void Click(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+        waitUntilElementIsClickable(element,10);
         element.click();
     }
 
     public void SendKeys(WebElement element, String value){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(element));
+        waitUntilElementIsVisible(element,10);
         element.sendKeys(value);
     }
 }
