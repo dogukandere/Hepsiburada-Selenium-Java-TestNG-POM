@@ -12,11 +12,13 @@ public class HepsiburadaTest extends TestBase {
 
     @BeforeClass
     public void beforeClass(){
+        
         hepsiburadaPage = new HepsiburadaPage(driver);
     }
 
     @Test(priority = 1, description = "Check the main page and search product")
     public void test01() throws Exception {
+        
         navigateToUrl(mainUrl);
         hepsiburadaPage.acceptPopup();
         Assert.assertTrue(hepsiburadaPage.loginButtonCheck());
@@ -32,7 +34,7 @@ public class HepsiburadaTest extends TestBase {
 
     @Test(priority = 2, description = "Check the product's price and added to cart")
     public void test02(){
-        driver.navigate().to("https://www.hepsiburada.com/samsung-galaxy-s23-256-gb-8-gb-ram-samsung-turkiye-garantili-p-HBCV00003P2GG0");
+        
         Assert.assertEquals(hepsiburadaPage.checkThePrice(),"23.488");
         hepsiburadaPage.acceptPopup();
         hepsiburadaPage.addToCart();
