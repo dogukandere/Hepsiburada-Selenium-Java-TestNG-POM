@@ -1,10 +1,7 @@
 package Pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import utilities.ReusableMethods;
 
 public class HepsiburadaPage extends ReusableMethods {
@@ -21,66 +18,77 @@ public class HepsiburadaPage extends ReusableMethods {
     private final String POPUP = "//*[@id=\"onetrust-accept-btn-handler\"]";
     private final String LOGO = "//a[@title='Hepsiburada']//*[name()='svg']//*[name()='path' and contains(@fill,'#FF6000')]";
     private final String LOGIN_BUTTON = "//span[@title='Giriş Yap']";
-    private final String CART_BUTTON = "//span[@id='shoppingCart']";
+    private final String LOCATION_BUTTON = "//div[@class='shipping-src-universal-partials-ShippingLocation-components-locationSelector-button-ShippingLocationSelectorButton__locationLabel']";
     private final String ADD_CART_BUTTON = "//button[@id='addToCart']";
     private final String PRODUCT = "//a[@title='Samsung Galaxy S23 256 GB 8 GB Ram (Samsung Türkiye Garantili)']//h3[@type='comfort']";
     private final String TEXT_CONTROL_ELEMENT = "//span[@data-bind=\"markupText:'currentPriceBeforePoint'\"]";
-    private final String PRODUCT_CHECK_ELEMENT = "//span[@class='checkoutui-ProductOnBasketHeader-nOvp_U8bHbLzgKbSUFaz']";
-    private final String GO_TO_CART_BUTTON = "//button[normalize-space()='Sepete git']";
+    private final String CONTINUE_SHOPPING_ELEMENT = "//*[@id=\"AddToCart_f8b336f5-0615-4f2b-7793-96cee90b3a72\"]/div/div/div/div/div/div[1]/div/div[1]/div/div[2]/button[2]";
+    private final String GO_TO_CART_BUTTON = "//*[@id=\"AddToCart_99c2abed-beb7-4b77-813a-eb0c55a9b0f9\"]/div/div/div/div/div/div[1]/div/div[1]/div/div[2]/button[1]";
+    private final String LIVE_SUPPORT_POPUP = "//*[@id=\"Embed\"]/div/div/div/div/div/div/header/div/button[2]/svg";
     private final String SHOPPING_BUTTON = "//button[@id='continue_step_btn']";
 
-
-    public void navigateToPage(String url) {
-        driver.navigate().to(url);
-    }
-
     public void acceptPopup(){
-            Click(POPUP);
+            click(POPUP);
     }
 
-    public void buttonCheck(){
-        isDisplayed(LOGIN_BUTTON);
-        isDisplayed(CART_BUTTON);
+    public boolean loginButtonCheck(){
+
+        return isDisplayed(LOGIN_BUTTON);
     }
 
-    public void linkLogoTitleCheck(){
-        isDisplayed(LOGO);
-        Assert.assertEquals("https://www.hepsiburada.com/",driver.getCurrentUrl());
-        Assert.assertEquals("Türkiye'nin En Büyük Online Alışveriş Sitesi Hepsiburada.com",driver.getTitle());
+    public boolean locationButtonCheck(){
+
+        return isDisplayed(LOCATION_BUTTON);
+    }
+
+    public boolean logoControl(){
+
+        return isDisplayed(LOGO);
     }
 
     public void searchProduct(String productname){
-        SendKeys(SEARCH_BOX,productname);
+
+        sendKeys(SEARCH_BOX,productname);
     }
 
     public void searchClick(){
-        Click(SEARCH_BUTTON);
+
+        click(SEARCH_BUTTON);
     }
 
     public void productClick(){
-        Click(PRODUCT);
+
+        click(PRODUCT);
     }
 
-    public void priceCheck(String fiyat){
-        Assert.assertEquals(TEXT_CONTROL_ELEMENT.getText(),fiyat);
+    public String checkThePrice(){
+
+        return getTextOfElement(TEXT_CONTROL_ELEMENT);
     }
 
     public void addToCart(){
-        Click(ADD_CART_BUTTON);
+
+        click(ADD_CART_BUTTON);
     }
 
-    public void productInCartCheck(){
-        waitUntilElementIsVisible(PRODUCT_CHECK_ELEMENT,10);
-        Assert.assertEquals(PRODUCT_CHECK_ELEMENT.getText(),"Ürün sepetinizde");
+    public boolean continueShoppingButtonCheck(){
+
+        return isDisplayed(CONTINUE_SHOPPING_ELEMENT);
+    }
+
+    public void closeLiveSupportPopup(){
+
+        click(LIVE_SUPPORT_POPUP);
     }
 
     public void goToBuyPage(){
-        Click(GO_TO_CART_BUTTON);
+
+        click(GO_TO_CART_BUTTON);
     }
 
-    public void shoppingButtonCheck(){
-        isDisplayed(SHOPPING_BUTTON);
-        isClickable(SHOPPING_BUTTON);
+    public boolean shoppingButtonCheck(){
+
+        return isDisplayed(SHOPPING_BUTTON);
     }
 
 }

@@ -195,25 +195,30 @@ public class ReusableMethods {
         element2.sendKeys(Keys.COMMAND + "v");
     }
 
-    public void isDisplayed(WebElement element){
-        waitUntilElementIsVisible(element,10);
-        Assert.assertTrue(element.isDisplayed());
+    public boolean isDisplayed(String xpath){
+        WebElement element = driver.findElement(By.xpath(xpath));
+        waitUntilElementIsVisible(element,20);
+        return element.isDisplayed();
     }
 
-    public void isClickable(WebElement element){
-        waitUntilElementIsClickable(element,10);
-        Assert.assertTrue(element.isEnabled());
+    public boolean isClickable(String xpath){
+        WebElement element = driver.findElement(By.xpath(xpath));
+        return element.isEnabled();
     }
 
-    public void Click(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+    public void click(String xpath){
+        WebElement element = driver.findElement(By.xpath(xpath));
+        waitUntilElementIsClickable(element,20);
         element.click();
     }
 
-    public void SendKeys(WebElement element, String value){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(element));
+    public void sendKeys(String xpath, String value){
+        WebElement element = driver.findElement(By.xpath(xpath));
+        waitUntilElementIsVisible(element,20);
         element.sendKeys(value);
+    }
+
+    public String getTextOfElement(String xpath){
+        return driver.findElement(By.xpath(xpath)).getText();
     }
 }
