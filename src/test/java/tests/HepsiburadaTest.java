@@ -8,15 +8,18 @@ import utilities.TestBase;
 
 public class HepsiburadaTest extends TestBase {
     HepsiburadaPage hepsiburadaPage;
+
     private static final String mainUrl = "https://www.hepsiburada.com/";
 
     @BeforeClass
     public void beforeClass(){
+
         hepsiburadaPage = new HepsiburadaPage(driver);
     }
 
     @Test(priority = 1, description = "Check the main page and search product")
-    public void test01() throws Exception {
+    public void searchProduct() {
+
         navigateToUrl(mainUrl);
         hepsiburadaPage.acceptPopup();
         Assert.assertTrue(hepsiburadaPage.loginButtonCheck());
@@ -25,20 +28,14 @@ public class HepsiburadaTest extends TestBase {
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.hepsiburada.com/");
         Assert.assertEquals(driver.getTitle(), "Türkiye'nin En Büyük Online Alışveriş Sitesi Hepsiburada.com");
         hepsiburadaPage.searchProduct("s23");
-        hepsiburadaPage.searchClick();
-        hepsiburadaPage.productClick();
-        hepsiburadaPage.switchToTab();
+        hepsiburadaPage.searchClick().productClick().switchToTab();
     }
 
     @Test(priority = 2, description = "Check the product's price and added to cart")
-    public void test02(){
-        driver.navigate().to("https://www.hepsiburada.com/samsung-galaxy-s23-256-gb-8-gb-ram-samsung-turkiye-garantili-p-HBCV00003P2GG0");
+    public void checkProduct(){
+
         Assert.assertEquals(hepsiburadaPage.checkThePrice(),"23.488");
-        hepsiburadaPage.acceptPopup();
-        hepsiburadaPage.addToCart();
-        Assert.assertTrue(hepsiburadaPage.continueShoppingButtonCheck());
-        hepsiburadaPage.goToBuyPage();
-        hepsiburadaPage.shoppingButtonCheck();
-        Assert.assertTrue(hepsiburadaPage.shoppingButtonCheck());
+        hepsiburadaPage.addToCart().goToBuyPage();
+        Assert.assertTrue(hepsiburadaPage.completeTheShoppingButtonCheck());
     }
 }

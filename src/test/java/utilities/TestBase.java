@@ -11,6 +11,7 @@ public abstract class TestBase {
 
     @BeforeClass
     public void before(){
+
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -18,11 +19,13 @@ public abstract class TestBase {
     }
 
     public void navigateToUrl(String url) {
+
         driver.navigate().to(url);
     }
 
     @AfterClass
     public void tearDown(){
+
         driver.quit();
     }
 
