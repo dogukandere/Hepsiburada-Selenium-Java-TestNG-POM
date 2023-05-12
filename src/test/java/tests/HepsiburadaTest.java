@@ -1,22 +1,35 @@
 package tests;
 
+import Pages.BuyingPage;
 import Pages.HepsiburadaPage;
+import Pages.ProductListPage;
+import Pages.ProductPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.TestBase;
 
 public class HepsiburadaTest extends TestBase {
+
     HepsiburadaPage hepsiburadaPage;
+    ProductListPage productListPage;
+    ProductPage productPage;
+    BuyingPage buyingPage;
+
     private static final String mainUrl = "https://www.hepsiburada.com/";
 
     @BeforeClass
     public void beforeClass(){
+
         hepsiburadaPage = new HepsiburadaPage(driver);
+        productListPage = new ProductListPage(driver);
+        productPage = new ProductPage(driver);
+        buyingPage = new BuyingPage(driver);
     }
 
     @Test(priority = 1, description = "Check the main page and search product")
-    public void test01() throws Exception {
+    public void searchProduct(){
+
         navigateToUrl(mainUrl);
         hepsiburadaPage.acceptPopup();
         Assert.assertTrue(hepsiburadaPage.loginButtonCheck());
@@ -24,21 +37,16 @@ public class HepsiburadaTest extends TestBase {
         Assert.assertTrue(hepsiburadaPage.logoControl());
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.hepsiburada.com/");
         Assert.assertEquals(driver.getTitle(), "Türkiye'nin En Büyük Online Alışveriş Sitesi Hepsiburada.com");
-        hepsiburadaPage.searchProduct("s23");
-        hepsiburadaPage.searchClick();
-        hepsiburadaPage.productClick();
-        hepsiburadaPage.switchToTab();
+        hepsiburadaPage.searchProduct("s23").searchClick();
+
+        productListPage.productClick().switchToTab();
     }
 
     @Test(priority = 2, description = "Check the product's price and added to cart")
-    public void test02(){
-        driver.navigate().to("https://www.hepsiburada.com/samsung-galaxy-s23-256-gb-8-gb-ram-samsung-turkiye-garantili-p-HBCV00003P2GG0");
-        Assert.assertEquals(hepsiburadaPage.checkThePrice(),"23.488");
-        hepsiburadaPage.acceptPopup();
-        hepsiburadaPage.addToCart();
-        Assert.assertTrue(hepsiburadaPage.continueShoppingButtonCheck());
-        hepsiburadaPage.goToBuyPage();
-        hepsiburadaPage.shoppingButtonCheck();
-        Assert.assertTrue(hepsiburadaPage.shoppingButtonCheck());
+    public void checkProduct(){
+
+        Assert.assertEquals(productPage.checkThePrice(),"23.488");
+        productPage.addToCart().goToBuyPage();
+        Assert.assertTrue(buyingPage.completeTheShoppingButtonCheck());
     }
 }
