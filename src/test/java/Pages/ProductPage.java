@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ReusableMethods;
@@ -13,9 +14,9 @@ public class ProductPage extends ReusableMethods {
         PageFactory.initElements(driver,this);
     }
 
-    private final String TEXT_CONTROL_ELEMENT = "//span[@data-bind=\"markupText:'currentPriceBeforePoint'\"]";
-    private final String ADD_CART_BUTTON = "//button[@id='addToCart']";
-    private final String GO_TO_CART_BUTTON = "//button[normalize-space()='Sepete git']";
+    private final By TEXT_CONTROL_ELEMENT = By.xpath("//span[@data-bind=\"markupText:'currentPriceBeforePoint'\"]");
+    private final By ADD_CART_BUTTON = By.xpath("//button[@id='addToCart']");
+    private final By GO_TO_CART_BUTTON = By.xpath("//button[normalize-space()='Sepete git']");
 
     public String checkThePrice(){
 

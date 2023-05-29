@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ReusableMethods;
@@ -13,8 +14,7 @@ public class BuyingPage extends ReusableMethods {
         PageFactory.initElements(driver,this);
     }
 
-    private final String COMPLETE_SHOPPING_BUTTON = "//button[@id='continue_step_btn']";
-
+    private final By COMPLETE_SHOPPING_BUTTON = By.xpath("//button[@id='continue_step_btn']");
 
     public boolean completeTheShoppingButtonCheck(){
 

@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ReusableMethods;
@@ -13,12 +14,12 @@ public class HepsiburadaPage extends ReusableMethods {
         PageFactory.initElements(driver,this);
     }
 
-    private final String SEARCH_BOX = "//input[@placeholder='Ürün, kategori veya marka ara']";
-    private final String SEARCH_BUTTON = "//div[@class='searchBoxOld-yDJzsIfi_S5gVgoapx6f']";
-    private final String POPUP = "//*[@id=\"onetrust-accept-btn-handler\"]";
-    private final String LOGO = "//a[@title='Hepsiburada']//*[name()='svg']//*[name()='path' and contains(@fill,'#FF6000')]";
-    private final String LOGIN_BUTTON = "//span[@title='Giriş Yap']";
-    private final String LOCATION_BUTTON = "//div[@class='shipping-src-universal-partials-ShippingLocation-components-locationSelector-button-ShippingLocationSelectorButton__locationLabel']";
+    private final By SEARCH_BOX = By.xpath("//input[@placeholder='Ürün, kategori veya marka ara']");
+    private final By SEARCH_BUTTON = By.xpath("//div[@class='searchBoxOld-yDJzsIfi_S5gVgoapx6f']");
+    private final By POPUP = By.xpath("//*[@id=\"onetrust-accept-btn-handler\"]");
+    private final By LOGO = By.xpath("//a[@title='Hepsiburada']//*[name()='svg']//*[name()='path' and contains(@fill,'#FF6000')]");
+    private final By LOGIN_BUTTON = By.xpath("//span[@title='Giriş Yap']");
+    private final By LOCATION_BUTTON = By.xpath("//div[@class='shipping-src-universal-partials-ShippingLocation-components-locationSelector-button-ShippingLocationSelectorButton__locationLabel']");
 
     public HepsiburadaPage acceptPopup(){
 
