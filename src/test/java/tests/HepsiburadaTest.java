@@ -45,7 +45,7 @@ public class HepsiburadaTest extends TestBase {
     @Test(priority = 2, description = "Check the product's price and added to cart")
     public void checkProduct(){
 
-        Assert.assertEquals(productPage.checkThePrice(),"23.488");
+        Assert.assertEquals(productPage.checkThePrice(),"27.370");
         productPage.addToCart().goToBuyPage();
         Assert.assertTrue(buyingPage.completeTheShoppingButtonCheck());
     }

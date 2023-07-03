@@ -14,9 +14,9 @@ public class ProductPage extends ReusableMethods {
         PageFactory.initElements(driver,this);
     }
 
-    private final By TEXT_CONTROL_ELEMENT = By.xpath("//span[@data-bind=\"markupText:'currentPriceBeforePoint'\"]");
-    private final By ADD_CART_BUTTON = By.xpath("//button[@id='addToCart']");
-    private final By GO_TO_CART_BUTTON = By.xpath("//button[normalize-space()='Sepete git']");
+    private static final By TEXT_CONTROL_ELEMENT = By.xpath("//span[@data-bind=\"markupText:'currentPriceBeforePoint'\"]");
+    private static final By ADD_CART_BUTTON = By.xpath("//button[@id='addToCart']");
+    private static final By GO_TO_CART_BUTTON = By.xpath("//button[normalize-space()='Sepete git']");
 
     public String checkThePrice(){
 

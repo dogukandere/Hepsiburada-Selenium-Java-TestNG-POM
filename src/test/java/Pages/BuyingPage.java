@@ -14,7 +14,7 @@ public class BuyingPage extends ReusableMethods {
         PageFactory.initElements(driver,this);
     }
 
-    private final By COMPLETE_SHOPPING_BUTTON = By.xpath("//button[@id='continue_step_btn']");
+    private static final By COMPLETE_SHOPPING_BUTTON = By.xpath("//button[@id='continue_step_btn']");
 
     public boolean completeTheShoppingButtonCheck(){
 

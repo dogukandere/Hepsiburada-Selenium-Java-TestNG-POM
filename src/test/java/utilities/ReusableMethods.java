@@ -211,42 +211,42 @@ public class ReusableMethods {
         }
     }
 
-    public void copyPasteText(By xpath1, By xpath2){
+    public void copyPasteText(By by1, By by2){
 
-        WebElement element = driver.findElement(xpath1);
-        WebElement element2 = driver.findElement(xpath2);
+        WebElement element = driver.findElement(by1);
+        WebElement element2 = driver.findElement(by2);
         element.sendKeys(Keys.COMMAND + "a");
         element.sendKeys(Keys.COMMAND + "c");
         element2.sendKeys(Keys.COMMAND + "v");
     }
 
-    public boolean isDisplayed(By xpath){
-        WebElement element = driver.findElement(xpath);
+    public boolean isDisplayed(By by){
+        WebElement element = driver.findElement(by);
         waitUntilElementIsVisible(element,10);
         return element.isDisplayed();
     }
 
-    public boolean isClickable(By xpath){
-        WebElement element = driver.findElement(xpath);
+    public boolean isClickable(By by){
+        WebElement element = driver.findElement(by);
         return element.isEnabled();
     }
 
-    public void click(By xpath){
+    public void click(By by){
 
-        WebElement element = driver.findElement(xpath);
+        WebElement element = driver.findElement(by);
         waitUntilElementIsClickable(element,20);
         element.click();
     }
 
-    public void sendKeys(By xpath, String value){
+    public void sendKeys(By by, String value){
 
-        WebElement element = driver.findElement(xpath);
+        WebElement element = driver.findElement(by);
         waitUntilElementIsVisible(element,10);
         element.sendKeys(value);
     }
 
-    protected String getTextOfElement(By xpath) {
+    public String getTextOfElement(By by) {
 
-        return driver.findElement(xpath).getText();
+        return driver.findElement(by).getText();
     }
 }
