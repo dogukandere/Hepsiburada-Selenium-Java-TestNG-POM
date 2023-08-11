@@ -221,12 +221,14 @@ public class ReusableMethods {
     }
 
     public boolean isDisplayed(By by){
+
         WebElement element = driver.findElement(by);
         waitUntilElementIsVisible(element,10);
         return element.isDisplayed();
     }
 
     public boolean isClickable(By by){
+
         WebElement element = driver.findElement(by);
         waitUntilElementIsClickable(element,10);
         return element.isEnabled();
