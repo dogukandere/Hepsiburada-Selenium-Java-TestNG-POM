@@ -6,12 +6,13 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.ReusableMethods;
 
 public class ProductPage extends ReusableMethods {
+
     WebDriver driver;
 
     public ProductPage(WebDriver driver) {
+
         super(driver);
         this.driver = driver;
-        PageFactory.initElements(driver,this);
     }
 
     private static final By TEXT_CONTROL_ELEMENT = By.xpath("//span[@data-bind=\"markupText:'currentPriceBeforePoint'\"]");

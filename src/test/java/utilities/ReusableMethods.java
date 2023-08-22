@@ -18,6 +18,7 @@ import java.util.Set;
 import static java.lang.Math.abs;
 
 public class ReusableMethods {
+
     WebDriver driver;
     WebDriverWait wait;
 
