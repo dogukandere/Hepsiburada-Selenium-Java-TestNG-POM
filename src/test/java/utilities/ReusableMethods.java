@@ -165,6 +165,12 @@ public class ReusableMethods {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public void waitUntilElementIsLocated(By by, int time){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+        wait.until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
     public void waitUntilElementIsClickable(WebElement element , int time){
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
@@ -223,14 +229,14 @@ public class ReusableMethods {
     public boolean isDisplayed(By by){
 
         WebElement element = driver.findElement(by);
-        waitUntilElementIsVisible(element,10);
+        waitUntilElementIsVisible(element,20);
         return element.isDisplayed();
     }
 
     public boolean isClickable(By by){
 
         WebElement element = driver.findElement(by);
-        waitUntilElementIsClickable(element,10);
+        waitUntilElementIsClickable(element,20);
         return element.isEnabled();
     }
 
@@ -244,7 +250,7 @@ public class ReusableMethods {
     public void sendKeys(By by, String value){
 
         WebElement element = driver.findElement(by);
-        waitUntilElementIsVisible(element,10);
+        waitUntilElementIsVisible(element,20);
         element.sendKeys(value);
     }
 

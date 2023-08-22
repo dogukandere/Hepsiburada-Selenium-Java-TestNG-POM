@@ -19,19 +19,13 @@
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
-        <version>4.7.2</version>
+        <version>4.11.0</version>
     </dependency>
 
     <dependency>
         <groupId>io.github.bonigarcia</groupId>
         <artifactId>webdrivermanager</artifactId>
-        <version>4.4.3</version>
-    </dependency>
-
-    <dependency>
-        <groupId>com.github.javafaker</groupId>
-        <artifactId>javafaker</artifactId>
-        <version>1.0.2</version>
+        <version>5.4.1</version>
     </dependency>
 
     <dependency>
@@ -62,7 +56,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-http-jdk-client</artifactId>
-            <version>4.5.0</version>
+            <version>4.11.0</version>
         </dependency>
 
     </dependencies>
