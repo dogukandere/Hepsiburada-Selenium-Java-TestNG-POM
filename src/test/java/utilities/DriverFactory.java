@@ -31,5 +31,4 @@ public abstract class DriverFactory {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
-
 }
