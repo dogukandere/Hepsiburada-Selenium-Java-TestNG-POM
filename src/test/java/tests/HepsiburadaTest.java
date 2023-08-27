@@ -4,7 +4,7 @@ import Pages.BuyingPage;
 import Pages.HepsiburadaPage;
 import Pages.ProductListPage;
 import Pages.ProductPage;
-import org.testng.Assert;
+import static org.testng.Assert.*;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import utilities.DriverFactory;
@@ -35,11 +35,11 @@ public class HepsiburadaTest {
 
         driver.navigate().to(mainUrl);
         hepsiburadaPage.acceptPopup();
-        Assert.assertTrue(hepsiburadaPage.loginButtonCheck());
-        Assert.assertTrue(hepsiburadaPage.locationButtonCheck());
-        Assert.assertTrue(hepsiburadaPage.logoControl());
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.hepsiburada.com/");
-        Assert.assertEquals(driver.getTitle(), "Türkiye'nin En Büyük Online Alışveriş Sitesi Hepsiburada.com");
+        assertTrue(hepsiburadaPage.loginButtonCheck());
+        assertTrue(hepsiburadaPage.locationButtonCheck());
+        assertTrue(hepsiburadaPage.logoControl());
+        assertEquals(driver.getCurrentUrl(), "https://www.hepsiburada.com/");
+        assertEquals(driver.getTitle(), "Türkiye'nin En Büyük Online Alışveriş Sitesi Hepsiburada.com");
         hepsiburadaPage.searchProduct("s23").searchClick();
 
         productListPage.productClick().switchToTab();
@@ -48,8 +48,8 @@ public class HepsiburadaTest {
     @Test(priority = 2, description = "Check the product's price and added to cart")
     public void checkProduct(){
 
-        Assert.assertEquals(productPage.checkThePrice(),"27.370");
+        assertEquals(productPage.checkThePrice(),"27.370");
         productPage.addToCart().goToBuyPage();
-        Assert.assertTrue(buyingPage.completeTheShoppingButtonCheck());
+        assertTrue(buyingPage.completeTheShoppingButtonCheck());
     }
 }
