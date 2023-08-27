@@ -1,19 +1,9 @@
 package Pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import utilities.ReusableMethods;
 
 public class ProductPage extends ReusableMethods {
-
-    WebDriver driver;
-
-    public ProductPage(WebDriver driver) {
-
-        super(driver);
-        this.driver = driver;
-    }
 
     private static final By TEXT_CONTROL_ELEMENT = By.xpath("//span[@data-bind=\"markupText:'currentPriceBeforePoint'\"]");
     private static final By ADD_CART_BUTTON = By.xpath("//button[@id='addToCart']");

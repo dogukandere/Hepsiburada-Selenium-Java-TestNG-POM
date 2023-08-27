@@ -5,32 +5,35 @@ import Pages.HepsiburadaPage;
 import Pages.ProductListPage;
 import Pages.ProductPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import utilities.TestBase;
+import utilities.DriverFactory;
 
-public class HepsiburadaTest extends TestBase {
+import static utilities.DriverFactory.driver;
 
-    HepsiburadaPage hepsiburadaPage;
-    ProductListPage productListPage;
-    ProductPage productPage;
-    BuyingPage buyingPage;
+public class HepsiburadaTest {
+
+    private static HepsiburadaPage hepsiburadaPage;
+    private static ProductListPage productListPage;
+    private static ProductPage productPage;
+    private static BuyingPage buyingPage;
 
     private static final String mainUrl = "https://www.hepsiburada.com/";
 
-    @BeforeClass
-    public void beforeClass(){
+    @BeforeTest
+    public void beforeTest(){
 
-        hepsiburadaPage = new HepsiburadaPage(driver);
-        productListPage = new ProductListPage(driver);
-        productPage = new ProductPage(driver);
-        buyingPage = new BuyingPage(driver);
+        DriverFactory.getDriver();
+        hepsiburadaPage = new HepsiburadaPage();
+        productListPage = new ProductListPage();
+        productPage = new ProductPage();
+        buyingPage = new BuyingPage();
     }
 
     @Test(priority = 1, description = "Check the main page and search product")
     public void searchProduct(){
 
-        navigateToUrl(mainUrl);
+        driver.navigate().to(mainUrl);
         hepsiburadaPage.acceptPopup();
         Assert.assertTrue(hepsiburadaPage.loginButtonCheck());
         Assert.assertTrue(hepsiburadaPage.locationButtonCheck());

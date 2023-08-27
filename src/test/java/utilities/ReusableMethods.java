@@ -16,19 +16,9 @@ import java.util.List;
 import java.util.Set;
 
 import static java.lang.Math.abs;
+import static utilities.DriverFactory.driver;
 
 public class ReusableMethods {
-
-    WebDriver driver;
-    WebDriverWait wait;
-
-    public ReusableMethods(WebDriverWait wait) {
-        this.wait = wait;
-    }
-
-    public ReusableMethods(WebDriver driver) {
-        this.driver = driver;
-    }
 
     public void rightClick(WebElement element){
 

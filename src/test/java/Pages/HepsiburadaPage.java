@@ -1,19 +1,9 @@
 package Pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import utilities.ReusableMethods;
 
 public class HepsiburadaPage extends ReusableMethods {
-
-    WebDriver driver;
-
-    public HepsiburadaPage(WebDriver driver) {
-
-        super(driver);
-        this.driver = driver;
-    }
 
     private static final By POPUP = By.xpath("//*[@id=\"onetrust-accept-btn-handler\"]");
     private static final By LOGIN_BUTTON = By.xpath("//span[@title='Giriş Yap']");
