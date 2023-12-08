@@ -13,34 +13,29 @@ public class HepsiburadaPage extends ReusableMethods {
     private static final By SEARCH_BUTTON = By.xpath("//div[@class='searchBoxOld-yDJzsIfi_S5gVgoapx6f']");
 
     public HepsiburadaPage acceptPopup(){
-
         click(POPUP);
         return this;
     }
 
     public boolean loginButtonCheck(){
-
         return isDisplayed(LOGIN_BUTTON);
     }
 
     public boolean locationButtonCheck(){
-
         return isDisplayed(LOCATION_BUTTON);
     }
 
     public boolean logoControl(){
-
         return isDisplayed(LOGO);
     }
 
-    public HepsiburadaPage searchProduct(String productname){
-
-        sendKeys(SEARCH_BOX,productname);
+    public HepsiburadaPage searchProduct(String productName){
+        click(SEARCH_BOX);
+        sendKeys(SEARCH_BOX, productName);
         return this;
     }
 
     public HepsiburadaPage searchClick(){
-
         click(SEARCH_BUTTON);
         return this;
     }

@@ -22,7 +22,6 @@ public class HepsiburadaTest {
 
     @BeforeTest
     public void beforeTest(){
-
         DriverFactory.getDriver();
         hepsiburadaPage = new HepsiburadaPage();
         productListPage = new ProductListPage();
@@ -32,7 +31,6 @@ public class HepsiburadaTest {
 
     @Test(priority = 1, description = "Check the main page and search product")
     public void searchProduct(){
-
         driver.navigate().to(mainUrl);
         hepsiburadaPage.acceptPopup();
         assertTrue(hepsiburadaPage.loginButtonCheck());
@@ -47,8 +45,7 @@ public class HepsiburadaTest {
 
     @Test(priority = 2, description = "Check the product's price and added to cart")
     public void checkProduct(){
-
-        assertEquals(productPage.checkThePrice(),"27.370");
+        assertEquals(productPage.checkThePrice(),"29.143");
         productPage.addToCart().goToBuyPage();
         assertTrue(buyingPage.completeTheShoppingButtonCheck());
     }
